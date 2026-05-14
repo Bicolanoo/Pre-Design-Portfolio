@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kenn Fernandez — Software Engineer crafting cinematic web experiences, performant interfaces, and elegant systems." />
+  <title>Kenn Fernandez — Software Engineer & Creative Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Cinematic Loader -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <div class="loader__logo">
+        <span class="loader__bracket">{</span>
+        <span class="loader__name">KF</span>
+        <span class="loader__bracket">}</span>
+      </div>
+      <div class="loader__bar"><div class="loader__bar-fill" id="loaderBar"></div></div>
+      <div class="loader__pct" id="loaderPct">0%</div>
+      <div class="loader__caption">Loading creative interface</div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor cursor--dot" id="cursorDot"></div>
+  <div class="cursor cursor--ring" id="cursorRing"></div>
+
+  <!-- Ambient mouse-follow light -->
+  <div class="ambient-light" id="ambientLight"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#home" class="nav__logo" data-hover>
+        <span class="nav__logo-bracket">{</span>
+        <span class="nav__logo-name">kenn<span class="accent">.</span>dev</span>
+        <span class="nav__logo-bracket">}</span>
+      </a>
+
+      <nav class="nav__links">
+        <a href="#about" class="nav__link" data-hover><span>01</span> About</a>
+        <a href="#skills" class="nav__link" data-hover><span>02</span> Skills</a>
+        <a href="#projects" class="nav__link" data-hover><span>03</span> Work</a>
+        <a href="#experience" class="nav__link" data-hover><span>04</span> Journey</a>
+        <a href="#contact" class="nav__link" data-hover><span>05</span> Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" data-hover aria-label="Toggle theme">
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <a href="#contact" class="btn btn--ghost btn--small" data-hover>
+          <span>Let's Talk</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button class="nav__burger" id="navBurger" aria-label="Menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero" id="home">
+    <div class="hero__gradient hero__gradient--1"></div>
+    <div class="hero__gradient hero__gradient--2"></div>
+    <div class="hero__grid"></div>
+
+    <div class="hero__content">
+      <div class="hero__left">
+        <div class="hero__tag reveal">
+          <span class="hero__tag-dot"></span>
+          <span>Available for freelance · Q3 2026</span>
+        </div>
+
+        <h1 class="hero__headline">
+          <span class="hero__line reveal-line"><span>Crafting</span></span>
+          <span class="hero__line reveal-line"><span>digital <em>experiences</em></span></span>
+          <span class="hero__line reveal-line"><span>that <span class="gradient-text">move people.</span></span></span>
+        </h1>
+
+        <div class="hero__typewriter reveal">
+          <span class="hero__typewriter-prefix">&gt;</span>
+          <span id="typewriter"></span>
+          <span class="hero__typewriter-cursor">_</span>
+        </div>
+
+        <p class="hero__intro reveal">
+          I'm <strong>Kenn Fernandez</strong> — a software engineer focused on building
+          cinematic, performant interfaces where design meets engineering. From elegant
+          startup products to large-scale platforms, I turn ideas into pixel-precise reality.
+        </p>
+
+        <div class="hero__cta reveal">
+          <a href="#projects" class="btn btn--primary" data-hover>
+            <span>View My Work</span>
+            <span class="btn__glow"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#contact" class="btn btn--outline" data-hover>
+            <span>Download Resume</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+        </div>
+
+        <div class="hero__metrics reveal">
+          <div class="metric">
+            <div class="metric__num" data-count="120">0</div>
+            <div class="metric__label">Projects shipped</div>
+          </div>
+          <div class="metric">
+            <div class="metric__num" data-count="48">0</div>
+            <div class="metric__label">Happy clients</div>
+          </div>
+          <div class="metric">
+            <div class="metric__num" data-count="6">0</div>
+            <div class="metric__label">Years building</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__right">
+        <div class="hero__visual">
+          <div class="hero__orb hero__orb--lg"></div>
+          <div class="hero__orb hero__orb--sm"></div>
+
+          <div class="hero__portrait" data-tilt>
+            <div class="hero__portrait-frame">
+              <div class="hero__portrait-img">
+                <svg viewBox="0 0 320 380" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="portraitGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#1e1e2e"/>
+                      <stop offset="50%" stop-color="#2a2a3e"/>
+                      <stop offset="100%" stop-color="#0f0f1a"/>
+                    </linearGradient>
+                    <radialGradient id="portraitGlow" cx="0.5" cy="0.3">
+                      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.4"/>
+                      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <rect width="320" height="380" fill="url(#portraitGrad)"/>
+                  <rect width="320" height="380" fill="url(#portraitGlow)"/>
+                  <!-- abstract avatar -->
+                  <circle cx="160" cy="150" r="58" fill="#3a3a52" opacity="0.9"/>
+                  <path d="M70 380 Q70 250 160 250 Q250 250 250 380 Z" fill="#3a3a52" opacity="0.9"/>
+                  <!-- glow accents -->
+                  <circle cx="160" cy="150" r="58" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.6"/>
+                  <circle cx="160" cy="150" r="80" fill="none" stroke="#06b6d4" stroke-width="0.8" opacity="0.3"/>
+                </svg>
+              </div>
+              <div class="hero__portrait-ring hero__portrait-ring--1"></div>
+              <div class="hero__portrait-ring hero__portrait-ring--2"></div>
+              <div class="hero__portrait-shine"></div>
+            </div>
+
+            <div class="float-card float-card--1 glass">
+              <div class="float-card__icon">⚡</div>
+              <div>
+                <div class="float-card__title">Performance</div>
+                <div class="float-card__value">98 / 100</div>
+              </div>
+            </div>
+
+            <div class="float-card float-card--2 glass">
+              <div class="float-card__dot"></div>
+              <div>
+                <div class="float-card__title">Currently building</div>
+                <div class="float-card__value">Realtime AI tools</div>
+              </div>
+            </div>
+
+            <div class="float-card float-card--3 glass">
+              <div class="float-card__icon float-card__icon--code">&lt;/&gt;</div>
+              <div>
+                <div class="float-card__title">Stack</div>
+                <div class="float-card__value">TS · React · Rust</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+
+    <div class="hero__marquee">
+      <div class="marquee-track">
+        <span>● Frontend Engineering</span><span>● UI / UX Design</span><span>● Motion & Animation</span><span>● Design Systems</span><span>● 3D Web</span><span>● AI Integration</span><span>● Performance</span><span>● Accessibility</span>
+        <span>● Frontend Engineering</span><span>● UI / UX Design</span><span>● Motion & Animation</span><span>● Design Systems</span><span>● 3D Web</span><span>● AI Integration</span><span>● Performance</span><span>● Accessibility</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ABOUT ============== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-head__num">01 / About</div>
+        <h2 class="section-head__title">
+          A <span class="gradient-text">designer-engineer</span><br/>obsessed with the details.
+        </h2>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <p class="about__lead">
+            I bridge the gap between design and engineering — building products that feel
+            as good as they look. My work lives at the intersection of typography, motion,
+            and systems thinking.
+          </p>
+          <p>
+            With over six years shipping production interfaces, I've collaborated with
+            startups, agencies, and enterprise teams across fintech, AI, and creative tooling.
+            I care deeply about craft, performance, and the small moments that turn a product
+            into an experience.
+          </p>
+          <p>
+            When I'm not coding, you'll find me studying cinematography, generative art,
+            or rebuilding my keyboard layout for the third time this year.
+          </p>
+
+          <div class="about__pillars">
+            <div class="pillar">
+              <div class="pillar__icon">◆</div>
+              <h4>Design-first</h4>
+              <p>Every pixel, every easing curve, every line height — intentional.</p>
+            </div>
+            <div class="pillar">
+              <div class="pillar__icon">⚡</div>
+              <h4>Performance</h4>
+              <p>Sub-second loads, 60fps motion, accessible by default.</p>
+            </div>
+            <div class="pillar">
+              <div class="pillar__icon">✦</div>
+              <h4>Systems</h4>
+              <p>Scalable design systems and architecture that grow with the team.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__side reveal">
+          <div class="glass about__card">
+            <div class="about__card-head">
+              <span class="status-dot"></span>
+              <span>Quick facts</span>
+            </div>
+            <ul class="fact-list">
+              <li><span>Based in</span><strong>Manila, PH</strong></li>
+              <li><span>Role</span><strong>Sr. Software Engineer</strong></li>
+              <li><span>Languages</span><strong>EN · FIL</strong></li>
+              <li><span>Focus</span><strong>Web · AI · 3D</strong></li>
+              <li><span>Coffee</span><strong>Black, always</strong></li>
+            </ul>
+          </div>
+
+          <div class="glass about__card about__card--quote">
+            <div class="quote-mark">"</div>
+            <p>Code is poetry written in logic — every function a verse, every interface a stage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SKILLS ============== -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-head__num">02 / Skills</div>
+        <h2 class="section-head__title">
+          Tools of the <span class="gradient-text">trade.</span>
+        </h2>
+        <p class="section-head__sub">Battle-tested across production systems and bleeding-edge experiments.</p>
+      </div>
+
+      <div class="skills__grid">
+        <!-- Frontend -->
+        <div class="glass skill-card reveal">
+          <div class="skill-card__head">
+            <h3>Frontend</h3>
+            <span class="skill-card__count">8</span>
+          </div>
+          <div class="skill-bars">
+            <div class="bar" data-value="95"><div class="bar__top"><span>React / Next.js</span><b>95%</b></div><div class="bar__track"><div class="bar__fill"></div></div></div>
+            <div class="bar" data-value="92"><div class="bar__top"><span>TypeScript</span><b>92%</b></div><div class="bar__track"><div class="bar__fill"></div></div></div>
+            <div class="bar" data-value="88"><div class="bar__top"><span>Tailwind / CSS</span><b>88%</b></div><div class="bar__track"><div class="bar__fill"></div></div></div>
+            <div class="bar" data-value="85"><div class="bar__top"><span>Framer Motion / GSAP</span><b>85%</b></div><div class="bar__track"><div class="bar__fill"></div></div></div>
+            <div class="bar" data-value="78"><div class="bar__top"><span>Three.js / WebGL</span><b>78%</b></div><div class="bar__track"><div class="bar__fill"></div></div></div>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="glass skill-card reveal">
+          <div class="skill-card__head">
+            <h3>Backend & Infra</h3>
+            <span class="skill-card__count">7</span>
+          </div>
+          <div class="skill-bars">
+            <div class="bar" data-value="90"><div class="bar__top"><span>Node.js / Bun</span><b>90%</b></div><div class="bar__track"><div class="bar__fill"></div></div></div>
+            <div class="bar" data-value="82"><div class="bar__top"><span>Python / FastAPI</span><b>82%</b></div><div class="bar__track"><div class="bar__fill"></div></div></div>
+            <div class="bar" data-value="75"><div class="bar__top"><span>Rust</span><b>75%</b></div><div class="bar__track"><div class="bar__fill"></div></div></div>
+            <div class="bar" data-value="85"><div class="bar__top"><span>PostgreSQL / Redis</span><b>85%</b></div><div class="bar__track"><div class="bar__fill"></div></div></div>
+            <div class="bar" data-value="80"><div class="bar__top"><span>Docker / AWS</span><b>80%</b></div><div class="bar__track"><div class="bar__fill"></div></div></div>
+          </div>
+        </div>
+
+        <!-- Circular Skills -->
+        <div class="glass skill-card skill-card--circles reveal">
+          <div class="skill-card__head">
+            <h3>Crafts</h3>
+            <span class="skill-card__count">4</span>
+          </div>
+          <div class="circles">
+            <div class="circle-skill" data-value="94">
+              <svg viewBox="0 0 100 100"><circle class="circle-skill__bg" cx="50" cy="50" r="42"/><circle class="circle-skill__fg" cx="50" cy="50" r="42"/></svg>
+              <div class="circle-skill__val"><span class="circle-skill__num">0</span>%</div>
+              <div class="circle-skill__lbl">UI Design</div>
+            </div>
+            <div class="circle-skill" data-value="88">
+              <svg viewBox="0 0 100 100"><circle class="circle-skill__bg" cx="50" cy="50" r="42"/><circle class="circle-skill__fg" cx="50" cy="50" r="42"/></svg>
+              <div class="circle-skill__val"><span class="circle-skill__num">0</span>%</div>
+              <div class="circle-skill__lbl">Motion</div>
+            </div>
+            <div class="circle-skill" data-value="91">
+              <svg viewBox="0 0 100 100"><circle class="circle-skill__bg" cx="50" cy="50" r="42"/><circle class="circle-skill__fg" cx="50" cy="50" r="42"/></svg>
+              <div class="circle-skill__val"><span class="circle-skill__num">0</span>%</div>
+              <div class="circle-skill__lbl">Systems</div>
+            </div>
+            <div class="circle-skill" data-value="86">
+              <svg viewBox="0 0 100 100"><circle class="circle-skill__bg" cx="50" cy="50" r="42"/><circle class="circle-skill__fg" cx="50" cy="50" r="42"/></svg>
+              <div class="circle-skill__val"><span class="circle-skill__num">0</span>%</div>
+              <div class="circle-skill__lbl">DX / Tooling</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating tech tags -->
+      <div class="tech-cloud reveal">
+        <span data-hover>React</span><span data-hover>Next.js</span><span data-hover>TypeScript</span><span data-hover>Three.js</span>
+        <span data-hover>GSAP</span><span data-hover>Framer Motion</span><span data-hover>Tailwind</span><span data-hover>Node.js</span>
+        <span data-hover>Bun</span><span data-hover>Rust</span><span data-hover>Python</span><span data-hover>FastAPI</span>
+        <span data-hover>PostgreSQL</span><span data-hover>Redis</span><span data-hover>Docker</span><span data-hover>AWS</span>
+        <span data-hover>Vercel</span><span data-hover>Figma</span><span data-hover>WebGL</span><span data-hover>GraphQL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PROJECTS ============== -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-head__num">03 / Selected Work</div>
+        <h2 class="section-head__title">
+          Featured <span class="gradient-text">projects.</span>
+        </h2>
+        <p class="section-head__sub">A curated selection of products I've designed and engineered.</p>
+      </div>
+
+      <div class="projects__grid">
+
+        <article class="project glass reveal" data-hover>
+          <div class="project__media">
+            <div class="project__mockup">
+              <div class="mockup__bar"><span></span><span></span><span></span></div>
+              <div class="mockup__body mockup__body--aurora">
+                <div class="mockup__sidebar"></div>
+                <div class="mockup__main">
+                  <div class="mockup__chart"></div>
+                  <div class="mockup__rows"><div></div><div></div><div></div><div></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="project__overlay">
+              <a href="#" class="project__link" data-hover><span>Live Preview</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+              <a href="#" class="project__link project__link--ghost" data-hover>Case Study</a>
+            </div>
+          </div>
+          <div class="project__body">
+            <div class="project__meta"><span>2025</span><span>•</span><span>Fintech</span></div>
+            <h3 class="project__title">Aurora — Realtime Trading Dashboard</h3>
+            <p class="project__desc">A cinematic financial cockpit with sub-100ms streaming charts and adaptive layouts.</p>
+            <div class="project__tags">
+              <span>Next.js</span><span>WebSockets</span><span>D3</span><span>Rust</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project glass reveal" data-hover>
+          <div class="project__media">
+            <div class="project__mockup">
+              <div class="mockup__bar"><span></span><span></span><span></span></div>
+              <div class="mockup__body mockup__body--lumen">
+                <div class="mockup__nav"></div>
+                <div class="mockup__hero">
+                  <div class="mockup__title"></div>
+                  <div class="mockup__title mockup__title--sm"></div>
+                  <div class="mockup__btn"></div>
+                </div>
+                <div class="mockup__cards"><div></div><div></div><div></div></div>
+              </div>
+            </div>
+            <div class="project__overlay">
+              <a href="#" class="project__link" data-hover><span>Live Preview</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+              <a href="#" class="project__link project__link--ghost" data-hover>Case Study</a>
+            </div>
+          </div>
+          <div class="project__body">
+            <div class="project__meta"><span>2025</span><span>•</span><span>SaaS</span></div>
+            <h3 class="project__title">Lumen — AI Writing Studio</h3>
+            <p class="project__desc">Streaming AI editor with collaborative cursors, version history, and a 60fps motion system.</p>
+            <div class="project__tags">
+              <span>React</span><span>TipTap</span><span>OpenAI</span><span>Liveblocks</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project glass reveal" data-hover>
+          <div class="project__media">
+            <div class="project__mockup">
+              <div class="mockup__bar"><span></span><span></span><span></span></div>
+              <div class="mockup__body mockup__body--orbit">
+                <div class="mockup__orbit-ring"></div>
+                <div class="mockup__orbit-ring mockup__orbit-ring--sm"></div>
+                <div class="mockup__orbit-core"></div>
+              </div>
+            </div>
+            <div class="project__overlay">
+              <a href="#" class="project__link" data-hover><span>Live Preview</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+              <a href="#" class="project__link project__link--ghost" data-hover>Case Study</a>
+            </div>
+          </div>
+          <div class="project__body">
+            <div class="project__meta"><span>2024</span><span>•</span><span>3D Web</span></div>
+            <h3 class="project__title">Orbit — Interactive 3D Portfolio Builder</h3>
+            <p class="project__desc">A no-code WebGL portfolio tool with shader presets and physics-driven scenes.</p>
+            <div class="project__tags">
+              <span>Three.js</span><span>R3F</span><span>GLSL</span><span>Zustand</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project glass reveal" data-hover>
+          <div class="project__media">
+            <div class="project__mockup">
+              <div class="mockup__bar"><span></span><span></span><span></span></div>
+              <div class="mockup__body mockup__body--noir">
+                <div class="mockup__phone">
+                  <div class="mockup__phone-screen">
+                    <div class="mockup__phone-row"></div>
+                    <div class="mockup__phone-row"></div>
+                    <div class="mockup__phone-row mockup__phone-row--accent"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project__overlay">
+              <a href="#" class="project__link" data-hover><span>Live Preview</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+              <a href="#" class="project__link project__link--ghost" data-hover>Case Study</a>
+            </div>
+          </div>
+          <div class="project__body">
+            <div class="project__meta"><span>2024</span><span>•</span><span>Mobile</span></div>
+            <h3 class="project__title">Noir — Privacy-First Messenger</h3>
+            <p class="project__desc">End-to-end encrypted messaging with disappearing UI and zero-knowledge sync.</p>
+            <div class="project__tags">
+              <span>React Native</span><span>Rust</span><span>libsodium</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="projects__cta reveal">
+        <a href="#contact" class="btn btn--outline" data-hover>
+          <span>View all 40+ projects</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== EXPERIENCE TIMELINE ============== -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-head__num">04 / Journey</div>
+        <h2 class="section-head__title">
+          The <span class="gradient-text">path</span> so far.
+        </h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__line"><div class="timeline__line-fill" id="timelineFill"></div></div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2026</div>
+          <div class="glass timeline__card">
+            <div class="timeline__role">Senior Software Engineer</div>
+            <div class="timeline__company">Nebula Labs · Remote</div>
+            <p>Leading the design-engineering effort on a real-time AI workspace serving 200k+ creators worldwide.</p>
+            <div class="timeline__tags"><span>React</span><span>Rust</span><span>WebGPU</span></div>
+          </div>
+        </div>
+
+        <div class="timeline__item timeline__item--right reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2024</div>
+          <div class="glass timeline__card">
+            <div class="timeline__role">Frontend Tech Lead</div>
+            <div class="timeline__company">Strato · Singapore</div>
+            <p>Architected the design system powering 14 products and reduced bundle size by 62% across the stack.</p>
+            <div class="timeline__tags"><span>Next.js</span><span>Design Systems</span><span>Perf</span></div>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2022</div>
+          <div class="glass timeline__card">
+            <div class="timeline__role">Product Engineer</div>
+            <div class="timeline__company">Helix Studio</div>
+            <p>Shipped 18 client products including award-winning brand sites and a Webby-nominated immersive experience.</p>
+            <div class="timeline__tags"><span>Three.js</span><span>GSAP</span><span>Webflow</span></div>
+          </div>
+        </div>
+
+        <div class="timeline__item timeline__item--right reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__year">2020</div>
+          <div class="glass timeline__card">
+            <div class="timeline__role">Full-stack Developer</div>
+            <div class="timeline__company">Freelance & Startups</div>
+            <p>Built and launched MVPs for early-stage founders — from fintech dashboards to social discovery apps.</p>
+            <div class="timeline__tags"><span>React</span><span>Node</span><span>Postgres</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CERTIFICATIONS ============== -->
+  <section class="section certs" id="certs">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-head__num">05 / Certifications</div>
+        <h2 class="section-head__title">
+          Recognized <span class="gradient-text">expertise.</span>
+        </h2>
+      </div>
+
+      <div class="certs__grid">
+        <div class="glass cert reveal" data-hover>
+          <div class="cert__icon">AWS</div>
+          <div class="cert__title">Solutions Architect — Associate</div>
+          <div class="cert__org">Amazon Web Services · 2025</div>
+        </div>
+        <div class="glass cert reveal" data-hover>
+          <div class="cert__icon">GCP</div>
+          <div class="cert__title">Professional Cloud Developer</div>
+          <div class="cert__org">Google Cloud · 2024</div>
+        </div>
+        <div class="glass cert reveal" data-hover>
+          <div class="cert__icon">⚛</div>
+          <div class="cert__title">Advanced React Patterns</div>
+          <div class="cert__org">Epic React · 2024</div>
+        </div>
+        <div class="glass cert reveal" data-hover>
+          <div class="cert__icon">◆</div>
+          <div class="cert__title">Design Systems Mastery</div>
+          <div class="cert__org">InVision · 2023</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CONTACT ============== -->
+  <section class="section contact" id="contact">
+    <div class="contact__gradient"></div>
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-head__num">06 / Contact</div>
+        <h2 class="section-head__title section-head__title--xl">
+          Let's build something<br/><span class="gradient-text">extraordinary.</span>
+        </h2>
+        <p class="section-head__sub">Open to senior roles, freelance, and ambitious collaborations.</p>
+      </div>
+
+      <div class="contact__grid">
+        <form class="glass contact__form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="Jane Cooper" required />
+            <div class="field__line"></div>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="jane@studio.com" required />
+            <div class="field__line"></div>
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" placeholder="Project inquiry" />
+            <div class="field__line"></div>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell me about your idea…" required></textarea>
+            <div class="field__line"></div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block" data-hover>
+            <span>Send Message</span>
+            <span class="btn__glow"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+          <div class="form-success" id="formSuccess">✓ Message sent — I'll get back within 24 hours.</div>
+        </form>
+
+        <aside class="contact__side reveal">
+          <div class="glass contact__info">
+            <h4>Direct line</h4>
+            <a href="mailto:hello@kenn.dev" data-hover>hello@kenn.dev</a>
+            <a href="tel:+639000000000" data-hover>+63 900 000 0000</a>
+          </div>
+          <div class="glass contact__info">
+            <h4>Find me online</h4>
+            <div class="socials">
+              <a href="#" data-hover><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.58v-2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.08-.73.08-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18a4.65 4.65 0 0 1 1.24 3.22c0 4.6-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3"/></svg></a>
+              <a href="#" data-hover><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5v-14a5 5 0 0 0-5-5zm-11 19h-3v-11h3v11zm-1.5-12.3a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zm13.5 12.3h-3v-5.6c0-1.4-.5-2.4-1.8-2.4-1 0-1.6.7-1.9 1.3-.1.2-.1.5-.1.8v5.9h-3v-11h3v1.5c.4-.6 1.1-1.5 2.7-1.5 2 0 3.4 1.3 3.4 4v7z"/></svg></a>
+              <a href="#" data-hover><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4.36a9 9 0 0 1-2.83 1.08 4.52 4.52 0 0 0-7.7 4.13A12.8 12.8 0 0 1 1.7 1a4.5 4.5 0 0 0 1.4 6.04A4.5 4.5 0 0 1 1 6.5v.06a4.52 4.52 0 0 0 3.63 4.44 4.5 4.5 0 0 1-2.04.08 4.52 4.52 0 0 0 4.22 3.14A9.06 9.06 0 0 1 1 16.07 12.8 12.8 0 0 0 7.92 18c8.3 0 12.84-6.88 12.84-12.85 0-.2 0-.39-.01-.58A9.2 9.2 0 0 0 23 3z"/></svg></a>
+              <a href="#" data-hover><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04a9.96 9.96 0 0 0-1.58 19.79v-7h-2.5v-2.79h2.5V9.86c0-2.47 1.47-3.83 3.71-3.83 1.08 0 2.2.19 2.2.19v2.42h-1.24c-1.22 0-1.6.76-1.6 1.54v1.84h2.72l-.43 2.79h-2.29v7A9.96 9.96 0 0 0 12 2.04z"/></svg></a>
+            </div>
+          </div>
+          <div class="glass contact__info contact__info--status">
+            <span class="status-dot"></span>
+            <div>
+              <strong>Available for new projects</strong>
+              <small>Response within 24h · Mon–Fri</small>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">{ kenn.dev }</span>
+        <span class="footer__tag">Crafted with care — © <span id="year"></span></span>
+      </div>
+      <div class="footer__links">
+        <a href="#home" data-hover>Top</a>
+        <a href="#projects" data-hover>Work</a>
+        <a href="#contact" data-hover>Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
